@@ -119,10 +119,13 @@
     background:linear-gradient(180deg, #16262f, var(--ink));
     border-radius:20px;
     overflow:hidden;
-    aspect-ratio:1/1;
+    aspect-ratio:4/5;
     box-shadow:0 24px 50px -18px rgba(18,32,43,0.45);
   }
-  .skyline-wrap svg{position:absolute; inset:0; width:100%; height:100%;}
+  .skyline-wrap img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 78%;
+  }
   .sweep{
     position:absolute; top:0; left:-60%; width:60%; height:100%;
     background:linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
@@ -164,6 +167,56 @@
   .svc-icon svg{width:22px; height:22px;}
   .svc-card h3{font-size:1.02rem; margin-bottom:6px; font-weight:600;}
   .svc-card p{font-size:0.9rem; color:var(--slate);}
+
+  .property-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  @media (max-width:920px){ .property-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .property-grid{grid-template-columns:1fr;} }
+
+  .property-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .property-card:hover{transform:translateY(-3px); box-shadow:0 16px 30px -14px rgba(18,32,43,0.22);}
+  .property-card img{
+    width:100%; aspect-ratio:4/3; object-fit:cover; display:block;
+  }
+  .property-card .pc-body{padding:18px 20px 22px;}
+  .property-card h3{font-size:1.02rem; margin-bottom:6px; font-weight:600;}
+  .property-card p{font-size:0.88rem; color:var(--slate);}
+
+  /* Property types / industries */
+  .industries-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media (max-width:920px){ .industries-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .industries-grid{grid-template-columns:1fr;} }
+
+  .industry-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .industry-card:hover{transform:translateY(-3px); box-shadow:0 16px 30px -14px rgba(18,32,43,0.22);}
+  .industry-card .thumb{
+    width:100%; aspect-ratio:4/3; overflow:hidden;
+  }
+  .industry-card .thumb img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .industry-card .info{padding:18px 20px 22px;}
+  .industry-card h3{font-size:1rem; margin-bottom:6px; font-weight:600;}
+  .industry-card p{font-size:0.88rem; color:var(--slate);}
 
   /* Why us - dark band */
   .why{
@@ -254,6 +307,7 @@
     </a>
     <nav class="links">
       <a href="#services">Services</a>
+      <a href="#properties">Property Types</a>
       <a href="#why">Why Us</a>
       <a href="#areas">Service Area</a>
       <a href="#contact">Contact</a>
@@ -280,37 +334,7 @@
     </div>
 
     <div class="skyline-wrap" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="400" fill="none"/>
-        <polygon points="0,260 60,180 120,240 170,150 230,220 280,160 340,230 400,190 400,400 0,400" fill="#1B2E38"/>
-        <rect x="55" y="150" width="46" height="180" fill="#22404A"/>
-        <rect x="63" y="165" width="8" height="10" fill="#C68A3D"/>
-        <rect x="79" y="165" width="8" height="10" fill="#C68A3D"/>
-        <rect x="63" y="185" width="8" height="10" fill="#C68A3D"/>
-        <rect x="79" y="185" width="8" height="10" fill="#12807D"/>
-        <rect x="63" y="205" width="8" height="10" fill="#12807D"/>
-        <rect x="79" y="205" width="8" height="10" fill="#C68A3D"/>
-        <rect x="175" y="90" width="60" height="240" fill="#2C525E"/>
-        <rect x="185" y="110" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="110" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="110" width="10" height="12" fill="#12807D"/>
-        <rect x="185" y="135" width="10" height="12" fill="#12807D"/>
-        <rect x="203" y="135" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="135" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="185" y="160" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="160" width="10" height="12" fill="#12807D"/>
-        <rect x="221" y="160" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="185" y="185" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="185" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="185" width="10" height="12" fill="#C68A3D"/>
-        <rect x="290" y="170" width="48" height="160" fill="#22404A"/>
-        <rect x="298" y="188" width="8" height="10" fill="#C68A3D"/>
-        <rect x="314" y="188" width="8" height="10" fill="#E8D9B8"/>
-        <rect x="298" y="208" width="8" height="10" fill="#E8D9B8"/>
-        <rect x="314" y="208" width="8" height="10" fill="#12807D"/>
-        <rect x="298" y="228" width="8" height="10" fill="#12807D"/>
-        <rect x="314" y="228" width="8" height="10" fill="#E8D9B8"/>
-      </svg>
+      <img src="lobby.webp" alt="Bright commercial lobby maintained by Paramount Property Maintenance">
       <div class="sweep"></div>
     </div>
   </div>
@@ -376,7 +400,161 @@
     </div>
   </section>
 
+  <section id="properties">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who We Serve</span>
+        <h2>Property types we service</h2>
+        <p>Every property is different — our crews adapt the scope and schedule to fit.</p>
+      </div>
+      <div class="industries-grid">
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-daycares.webp" alt="Daycare classroom"></div>
+          <div class="info">
+            <h3>Daycares</h3>
+            <p>Daycares demand a higher standard of clean. We disinfect high-touch surfaces, toys, and play areas with safe, kid-appropriate products, keeping little ones healthy and parents at ease.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-condos.webp" alt="Condo building lobby lounge"></div>
+          <div class="info">
+            <h3>Condos</h3>
+            <p>From lobbies to hallways to amenity spaces, we help condo boards and property managers maintain a polished first impression for residents and guests — with a particular focus on low-rise and mid-rise buildings.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-hotels.webp" alt="Hotel reception desk"></div>
+          <div class="info">
+            <h3>Hotels</h3>
+            <p>Guests notice everything. We keep lobbies, common areas, and back-of-house spaces spotless around the clock, so your hotel delivers a five-star first impression every time.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-barbershops.webp" alt="Barbershop and salon interior"></div>
+          <div class="info">
+            <h3>Barbershops</h3>
+            <p>A clean shop builds trust. We handle the daily detail work — floors, stations, and washrooms — so your chairs stay full and clients keep coming back.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-dealerships.webp" alt="Car dealership showroom"></div>
+          <div class="info">
+            <h3>Dealerships</h3>
+            <p>Showroom floors should shine as bright as the cars on them. We keep glass, floors, and display areas spotless so every vehicle gets the showcase it deserves.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-supermarkets.webp" alt="Supermarket aisle"></div>
+          <div class="info">
+            <h3>Supermarkets</h3>
+            <p>High foot traffic means high demands. We keep aisles, entryways, and washrooms clean and sanitized, so shoppers feel confident every time they walk through your doors.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-warehouses.webp" alt="Warehouse storage aisle"></div>
+          <div class="info">
+            <h3>Warehouses</h3>
+            <p>Big spaces need a thorough approach. We manage floor care, dust control, and waste removal across your facility, keeping operations safe, compliant, and efficient.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-retail.webp" alt="Retail store interior"></div>
+          <div class="info">
+            <h3>Retail</h3>
+            <p>First impressions drive sales. We keep your floors, fitting rooms, and storefronts guest-ready, so shoppers can focus on browsing — not clutter.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section id="why">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:40px;">
+        <span class="eyebrow">Who We Serve</span>
+        <h2>Property types we service</h2>
+        <p>From single storefronts to full portfolios, our crews adapt to the space.</p>
+      </div>
+      <div class="property-grid">
+
+        <div class="property-card">
+          <img src="property-daycares.webp" alt="Daycare classroom">
+          <div class="pc-body">
+            <h3>Daycares</h3>
+            <p>Where cleanliness protects the youngest visitors. We use child-safe, low-toxicity products and pay close attention to high-touch surfaces, play areas, and washrooms.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-condos.webp" alt="Condo lobby">
+          <div class="pc-body">
+            <h3>Condos</h3>
+            <p>A trusted partner for low-rise and mid-rise buildings — our focus — keeping lobbies, hallways, and amenity spaces spotless for residents and guests.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-hotels.webp" alt="Hotel lobby front desk">
+          <div class="pc-body">
+            <h3>Hotels</h3>
+            <p>First impressions start at the front desk. We help hotels maintain the polish guests expect, from public spaces to back-of-house areas.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-barbershops.webp" alt="Barbershop interior">
+          <div class="pc-body">
+            <h3>Barbershops</h3>
+            <p>Between every client, cleanliness matters. We keep stations, floors, and waiting areas sanitized and presentation-ready all day long.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-dealerships.webp" alt="Car dealership showroom">
+          <div class="pc-body">
+            <h3>Dealerships</h3>
+            <p>Showroom floors that reflect the vehicles on them. We keep glass, tile, and display areas spotless so every car gets the presentation it deserves.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-supermarkets.webp" alt="Supermarket aisle">
+          <div class="pc-body">
+            <h3>Supermarkets</h3>
+            <p>High traffic, high standards. We manage the demands of busy aisles, entrances, and backrooms so shelves and floors stay guest-ready.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-warehouses.webp" alt="Warehouse storage aisles">
+          <div class="pc-body">
+            <h3>Warehouses</h3>
+            <p>Large footprints, industrial demands. We handle floor care, dust control, and general upkeep across expansive warehouse and distribution spaces.</p>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="property-retail.webp" alt="Retail store clothing racks">
+          <div class="pc-body">
+            <h3>Retail</h3>
+            <p>Clean stores sell better. We keep sales floors, fitting rooms, and entryways polished so shoppers focus on your products, not the dust.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us">
     <div class="wrap">
       <div class="why">
         <div class="why-inner">
