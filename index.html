@@ -63,9 +63,9 @@
     max-width:1140px; margin:0 auto;
   }
   .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
-  .brand img{height:138px; width:auto;}
-  @media (max-width:820px){ .brand img{height:96px;} }
-  @media (max-width:480px){ .brand img{height:76px;} }
+  .brand img{height:92px; width:auto;}
+  @media (max-width:820px){ .brand img{height:72px;} }
+  @media (max-width:480px){ .brand img{height:58px;} }
   .brand-name{font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem; color:var(--ink); letter-spacing:0.02em;}
   .brand-name span{display:block; font-family:'Inter',sans-serif; font-weight:600; font-size:0.62rem; letter-spacing:0.14em; color:var(--teal-dark); text-transform:uppercase;}
   nav.links{display:flex; gap:28px; align-items:center;}
@@ -119,10 +119,13 @@
     background:linear-gradient(180deg, #16262f, var(--ink));
     border-radius:20px;
     overflow:hidden;
-    aspect-ratio:1/1;
+    aspect-ratio:4/5;
     box-shadow:0 24px 50px -18px rgba(18,32,43,0.45);
   }
-  .skyline-wrap svg{position:absolute; inset:0; width:100%; height:100%;}
+  .skyline-wrap img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 78%;
+  }
   .sweep{
     position:absolute; top:0; left:-60%; width:60%; height:100%;
     background:linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
@@ -164,6 +167,56 @@
   .svc-icon svg{width:22px; height:22px;}
   .svc-card h3{font-size:1.02rem; margin-bottom:6px; font-weight:600;}
   .svc-card p{font-size:0.9rem; color:var(--slate);}
+
+  .property-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  @media (max-width:920px){ .property-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .property-grid{grid-template-columns:1fr;} }
+
+  .property-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .property-card:hover{transform:translateY(-3px); box-shadow:0 16px 30px -14px rgba(18,32,43,0.22);}
+  .property-card img{
+    width:100%; aspect-ratio:4/3; object-fit:cover; display:block;
+  }
+  .property-card .pc-body{padding:18px 20px 22px;}
+  .property-card h3{font-size:1.02rem; margin-bottom:6px; font-weight:600;}
+  .property-card p{font-size:0.88rem; color:var(--slate);}
+
+  /* Property types / industries */
+  .industries-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media (max-width:920px){ .industries-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .industries-grid{grid-template-columns:1fr;} }
+
+  .industry-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .industry-card:hover{transform:translateY(-3px); box-shadow:0 16px 30px -14px rgba(18,32,43,0.22);}
+  .industry-card .thumb{
+    width:100%; aspect-ratio:4/3; overflow:hidden;
+  }
+  .industry-card .thumb img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .industry-card .info{padding:18px 20px 22px;}
+  .industry-card h3{font-size:1rem; margin-bottom:6px; font-weight:600;}
+  .industry-card p{font-size:0.88rem; color:var(--slate);}
 
   /* Why us - dark band */
   .why{
@@ -238,7 +291,7 @@
   }
   .footer-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; align-items:center;}
   .footer-brand{display:flex; align-items:center; gap:10px;}
-  .footer-brand img{height:64px;}
+  .footer-brand img{height:80px;}
   .footer-brand span{font-family:'Fraunces',serif; color:#fff; font-weight:600;}
   footer .fine{font-size:0.8rem; margin-top:24px; color:#8A8578; text-align:center;}
   footer a{text-decoration:none; color:#C7C2B6;}
@@ -250,11 +303,12 @@
 <header>
   <div class="nav">
     <a class="brand" href="#top">
-      <img src="paramount-logo.png" alt="Paramount Property Maintenance logo">
+      <img src="paramount-logo.webp" alt="Paramount Property Maintenance logo">
     </a>
     <nav class="links">
       <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
+      <a href="#properties">Property Types</a>
+      <a href="#why-us">Why Us</a>
       <a href="#areas">Service Area</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -266,8 +320,8 @@
   <div class="wrap hero">
     <div>
       <span class="eyebrow">Commercial Cleaning &amp; Janitorial</span>
-      <h1>Immaculate buildings, <em>maintained on schedule.</em></h1>
-      <p class="lead">Paramount Property Maintenance keeps commercial real estate across the Greater Toronto Area and Niagara Region clean, sanitary, and presentable — for property managers, tenants, and everyone who walks through the door.</p>
+      <h1>Immaculate properties, <em>maintained on schedule.</em></h1>
+      <p class="lead">Paramount Property Maintenance takes care of the cleaning, so you can focus on what matters most: your business and your customers. Clean, sanitary, and presentable — for everyone who walks through the door.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="#contact">Request a Quote</a>
         <a class="btn-secondary" href="tel:4169988990">Call 416-998-8990</a>
@@ -280,37 +334,7 @@
     </div>
 
     <div class="skyline-wrap" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="400" fill="none"/>
-        <polygon points="0,260 60,180 120,240 170,150 230,220 280,160 340,230 400,190 400,400 0,400" fill="#1B2E38"/>
-        <rect x="55" y="150" width="46" height="180" fill="#22404A"/>
-        <rect x="63" y="165" width="8" height="10" fill="#C68A3D"/>
-        <rect x="79" y="165" width="8" height="10" fill="#C68A3D"/>
-        <rect x="63" y="185" width="8" height="10" fill="#C68A3D"/>
-        <rect x="79" y="185" width="8" height="10" fill="#12807D"/>
-        <rect x="63" y="205" width="8" height="10" fill="#12807D"/>
-        <rect x="79" y="205" width="8" height="10" fill="#C68A3D"/>
-        <rect x="175" y="90" width="60" height="240" fill="#2C525E"/>
-        <rect x="185" y="110" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="110" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="110" width="10" height="12" fill="#12807D"/>
-        <rect x="185" y="135" width="10" height="12" fill="#12807D"/>
-        <rect x="203" y="135" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="135" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="185" y="160" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="160" width="10" height="12" fill="#12807D"/>
-        <rect x="221" y="160" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="185" y="185" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="203" y="185" width="10" height="12" fill="#E8D9B8"/>
-        <rect x="221" y="185" width="10" height="12" fill="#C68A3D"/>
-        <rect x="290" y="170" width="48" height="160" fill="#22404A"/>
-        <rect x="298" y="188" width="8" height="10" fill="#C68A3D"/>
-        <rect x="314" y="188" width="8" height="10" fill="#E8D9B8"/>
-        <rect x="298" y="208" width="8" height="10" fill="#E8D9B8"/>
-        <rect x="314" y="208" width="8" height="10" fill="#12807D"/>
-        <rect x="298" y="228" width="8" height="10" fill="#12807D"/>
-        <rect x="314" y="228" width="8" height="10" fill="#E8D9B8"/>
-      </svg>
+      <img src="lobby.webp" alt="Bright commercial lobby maintained by Paramount Property Maintenance">
       <div class="sweep"></div>
     </div>
   </div>
@@ -325,27 +349,9 @@
       <div class="services-grid">
 
         <div class="svc-card">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><path d="M4 20 L18 6 M14 4 L20 10 M6 18 L4 20 L4 16 Z"/></svg></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3 L9 15"/><path d="M9 15 L4 21 M9 15 L7 21 M9 15 L11 20.5 M9 15 L13 19"/><path d="M5.5 21 H13.5"/></svg></div>
           <h3>General Janitorial</h3>
           <p>Sweeping, mopping, vacuuming, dusting, and trash removal on a schedule that fits your building.</p>
-        </div>
-
-        <div class="svc-card">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12 H20"/></svg></div>
-          <h3>Floor Care</h3>
-          <p>Stripping, waxing, and buffing of hard floors, plus carpet cleaning and spot treatment.</p>
-        </div>
-
-        <div class="svc-card">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M12 3 V21 M5 12 H19"/></svg></div>
-          <h3>Window &amp; Glass Cleaning</h3>
-          <p>Interior and exterior glass, partitions, and entryways kept streak-free and presentable.</p>
-        </div>
-
-        <div class="svc-card">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8 V12 L15 15"/></svg></div>
-          <h3>Washroom Sanitation</h3>
-          <p>Full sanitation and restocking of supplies so washrooms stay guest-ready around the clock.</p>
         </div>
 
         <div class="svc-card">
@@ -355,28 +361,123 @@
         </div>
 
         <div class="svc-card">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><path d="M4 21 L20 21 M6 21 V10 L12 4 L18 10 V21"/></svg></div>
-          <h3>Post-Construction Cleanup</h3>
-          <p>Debris removal and detail cleaning to bring newly built or renovated spaces to move-in condition.</p>
-        </div>
-
-        <div class="svc-card">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M8 8 V5 H16 V8"/></svg></div>
           <h3>Lobby &amp; Common Area Upkeep</h3>
           <p>Ongoing maintenance of lobbies, elevators, and shared spaces that shape a tenant's first impression.</p>
         </div>
 
         <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="8" height="4" rx="1"/><path d="M6 7 H16 a2 2 0 0 1 2 2 v1.5 a6 6 0 0 1 -12 0 V9 a2 2 0 0 1 2 -2 Z"/></svg></div>
+          <h3>Washroom Sanitation</h3>
+          <p>Full sanitation and restocking of supplies so washrooms stay guest-ready around the clock.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M12 3 V21 M5 12 H19"/></svg></div>
+          <h3>Window &amp; Glass Cleaning</h3>
+          <p>Interior glass, partitions, and entryways kept streak-free and presentable.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 19 L9 6 H15 L22 19 Z"/><path d="M6.3 19 L10.5 8 M12 19 L12 7.5 M17.7 19 L13.5 8"/></svg></div>
+          <h3>Floor Care</h3>
+          <p>Stripping, waxing, and buffing of hard floors, plus carpet cleaning and spot treatment.</p>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><path d="M4 21 L20 21 M6 21 V10 L12 4 L18 10 V21"/></svg></div>
+          <h3>Post-Construction Detailing</h3>
+          <p>Detail cleaning to bring newly built or renovated spaces to move-in condition.</p>
+        </div>
+
+        <div class="svc-card">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#12807D" stroke-width="2" stroke-linecap="round"><path d="M5 4 L9 10 L5 10 L9 16 L5 16 L11 21 L17 14 L13 14 L17 8 L13 8 L17 3 Z"/></svg></div>
           <h3>Exterior &amp; Pressure Washing</h3>
-          <p>Sidewalks, entrances, and parking areas washed down to keep exteriors matching the interior standard.</p>
+          <p>Sidewalks and entrances washed down to keep exteriors matching the interior standard.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section id="why">
+  <section id="properties">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who We Serve</span>
+        <h2>Property types we service</h2>
+        <p>Every property is different — our crews adapt the scope and schedule to fit.</p>
+      </div>
+      <div class="industries-grid">
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-daycares.webp" alt="Daycare classroom"></div>
+          <div class="info">
+            <h3>Daycares</h3>
+            <p>Daycares demand a higher standard of clean. We disinfect high-touch surfaces and play areas with safe, kid-appropriate products, keeping little ones healthy and parents at ease.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-condos.webp" alt="Condo building lobby lounge"></div>
+          <div class="info">
+            <h3>Condos</h3>
+            <p>From lobbies to hallways to amenity spaces, we help condo boards and property managers maintain a polished first impression for residents and guests — with a particular focus on low-rise and mid-rise buildings.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-office-spaces.webp" alt="Modern office workspace"></div>
+          <div class="info">
+            <h3>Office Spaces</h3>
+            <p>A clean workspace supports a productive team. We keep desks, common areas, boardrooms, and washrooms sanitized and presentable, day or night, without disrupting the workday.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-barbershops.webp" alt="Barbershop and salon interior"></div>
+          <div class="info">
+            <h3>Barbershops</h3>
+            <p>A clean shop builds trust. We handle the daily detail work — floors, stations, and washrooms — so your chairs stay full and clients keep coming back.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-dealerships.webp" alt="Car dealership showroom"></div>
+          <div class="info">
+            <h3>Dealerships</h3>
+            <p>Showroom floors should shine as bright as the cars on them. We keep glass, floors, and display areas spotless so every vehicle gets the showcase it deserves.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-supermarkets.webp" alt="Supermarket aisle"></div>
+          <div class="info">
+            <h3>Supermarkets</h3>
+            <p>High foot traffic means high demands. We keep aisles, entryways, and washrooms clean and sanitized, so shoppers feel confident every time they walk through your doors.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-warehouses.webp" alt="Warehouse storage aisle"></div>
+          <div class="info">
+            <h3>Warehouses</h3>
+            <p>Big spaces need a thorough approach. We manage floor care, dust control, and waste removal across your facility, keeping operations safe, compliant, and efficient.</p>
+          </div>
+        </div>
+
+        <div class="industry-card">
+          <div class="thumb"><img src="industries/property-retail.webp" alt="Retail store interior"></div>
+          <div class="info">
+            <h3>Retail</h3>
+            <p>First impressions drive sales. We keep your floors, fitting rooms, and storefronts guest-ready, so shoppers can focus on browsing — not clutter.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="why-us">
     <div class="wrap">
       <div class="why">
         <div class="why-inner">
@@ -414,21 +515,19 @@
       <div>
         <span class="eyebrow">Where We Work</span>
         <h2 style="margin-top:10px;">Greater Toronto Area &amp; Niagara Region</h2>
-        <p style="margin-top:14px; max-width:46ch;">We service commercial properties across the region, including — but not limited to:</p>
+        <p style="margin-top:14px; max-width:46ch;">We service commercial properties across the shaded region, including — but not limited to:</p>
         <ul class="area-list">
-          <li>Toronto &amp; North York</li>
-          <li>Mississauga &amp; Brampton</li>
-          <li>Vaughan &amp; Markham</li>
-          <li>Niagara Falls &amp; St. Catharines</li>
-          <li>Ask about your location — coverage is expanding</li>
+          <li>Toronto</li>
+          <li>Mississauga</li>
+          <li>Oakville</li>
+          <li>Burlington</li>
+          <li>Hamilton</li>
+          <li>St. Catharines</li>
+          <li>Niagara Falls</li>
         </ul>
       </div>
       <div class="pin-graphic" aria-hidden="true">
-        <svg viewBox="0 0 200 200" width="70%">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#12807D" stroke-width="1.5" stroke-dasharray="4 6"/>
-          <path d="M100 40 C70 40 50 62 50 90 C50 125 100 165 100 165 C100 165 150 125 150 90 C150 62 130 40 100 40Z" fill="#C68A3D"/>
-          <circle cx="100" cy="88" r="20" fill="#F6F2E9"/>
-        </svg>
+        <img src="service-area-map.webp" alt="Map of Paramount Property Maintenance's service coverage area across the Greater Toronto Area and Niagara Region" style="width:100%; height:100%; object-fit:contain; border-radius:10px;">
       </div>
     </div>
   </section>
@@ -502,7 +601,7 @@
   <div class="wrap">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="paramount-logo.png" alt="Paramount Property Maintenance">
+        <img src="paramount-logo-white.webp" alt="Paramount Property Maintenance">
         <span>Paramount Property Maintenance</span>
       </div>
       <div>
